@@ -1,0 +1,15 @@
+# Build output
+tmp/
+*.exe
+*.test
+*.out
+
+# Local Claude Code settings (per-user permissions, not project config)
+.claude/settings.local.json
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
