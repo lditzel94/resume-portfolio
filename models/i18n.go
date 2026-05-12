@@ -11,7 +11,9 @@ type I18nNav struct {
 }
 
 type I18nStatus struct {
-	OpenToWork string `yaml:"open_to_work"`
+	Open string `yaml:"open"`
+	Busy string `yaml:"busy"`
+	Away string `yaml:"away"`
 }
 
 type I18nActions struct {

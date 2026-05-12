@@ -25,6 +25,17 @@ type PortfolioPage struct {
 	LinkedInUser string // trailing username only (e.g. "luciano-ditzel")
 	EmailB64     string // base64-encoded email for client-side decode (avoids raw DOM exposure)
 	BuildID      string // cache-bust suffix for static assets
+	Status       string // availability: "open" (default), "busy" or "away" — set via STATUS env var
+}
+
+var validStatuses = map[string]bool{"open": true, "busy": true, "away": true}
+
+func getStatus() string {
+	s := strings.ToLower(strings.TrimSpace(os.Getenv("STATUS")))
+	if validStatuses[s] {
+		return s
+	}
+	return "open"
 }
 
 func linkedInUser(url string) string {
@@ -116,6 +127,7 @@ func loadPage(dataPath, i18nDir string, r *http.Request) (*PortfolioPage, error)
 		LinkedInUser: linkedInUser(resume.Meta.LinkedIn),
 		EmailB64:     base64.StdEncoding.EncodeToString([]byte(resume.Meta.Email)),
 		BuildID:      buildID,
+		Status:       getStatus(),
 	}, nil
 }
 

@@ -107,6 +107,17 @@ button { font: inherit; cursor: pointer; }
   animation: pulse 2s ease-in-out infinite;
 }
 
+/* Availability variants — dot + glow color tracks the badge state */
+.status-busy .status-dot {
+  background: var(--amber);
+  box-shadow: 0 0 8px var(--amber);
+}
+.status-away .status-dot {
+  background: #9ca3af;
+  box-shadow: 0 0 8px rgba(156, 163, 175, 0.6);
+  animation: none;
+}
+
 .topbar-actions {
   display: flex;
   align-items: center;

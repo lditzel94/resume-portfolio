@@ -57,9 +57,9 @@
 
   <!-- TOP BAR -->
   <header class="topbar">
-    <div class="status-badge">
+    <div class="status-badge status-{{.Status}}">
       <span class="status-dot"></span>
-      <span>{{.T.Status.OpenToWork}}</span>
+      <span>{{if eq .Status "busy"}}{{.T.Status.Busy}}{{else if eq .Status "away"}}{{.T.Status.Away}}{{else}}{{.T.Status.Open}}{{end}}</span>
     </div>
     <div class="topbar-actions">
       <a href="{{.T.Nav.LangSwitchURL}}" class="lang-chip" aria-label="Switch language">

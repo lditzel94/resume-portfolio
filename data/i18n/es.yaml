@@ -8,7 +8,9 @@ nav:
   lang_switch_url: "/?lang=en"
 
 status:
-  open_to_work: "Abierto a propuestas"
+  open: "Abierto a propuestas"
+  busy: "Trabajando ahora"
+  away: "No disponible"
 
 actions:
   download_cv: "Descargar"
