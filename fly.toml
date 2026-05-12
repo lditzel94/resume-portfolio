@@ -1,0 +1,23 @@
+# fly.toml — Fly.io configuration for resume-portfolio
+#
+# `app` will be set by `fly launch` to a globally-unique name (you'll be
+# prompted). Edit it below if you want to pin it explicitly.
+
+app = "resume-portfolio"
+primary_region = "gru"  # São Paulo — lowest latency from Argentina
+
+[build]
+
+[http_service]
+  internal_port = 8080
+  force_https = true
+  auto_stop_machines = "stop"
+  auto_start_machines = true
+  min_machines_running = 1   # keep one VM warm (no cold starts)
+  processes = ["app"]
+
+[[vm]]
+  size = "shared-cpu-1x"
+  memory = "256mb"
+  cpu_kind = "shared"
+  cpus = 1

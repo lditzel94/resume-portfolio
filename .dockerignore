@@ -1,0 +1,12 @@
+.git
+.github
+.claude
+.air
+tmp
+*.md
+README.md
+Makefile
+.gitignore
+.dockerignore
+Dockerfile
+fly.toml
