@@ -1,0 +1,41 @@
+{{define "section-experience"}}
+<div class="section section-experience">
+  <header class="section-head">
+    <p class="section-eyebrow">{{.T.Nav.Experience}}</p>
+    <h2 class="section-title">{{.T.Experience.Title}}</h2>
+  </header>
+
+  <div class="xp-list">
+    {{range $i, $xp := .Resume.Experience}}
+    <article class="xp-card">
+      <div class="xp-meta">
+        <span class="xp-dot"></span>
+        <div class="xp-dates">
+          <span>{{$xp.Start}}</span>
+          <span class="xp-arrow">→</span>
+          <span>{{if $xp.Current}}{{$.T.Experience.Present}}{{else}}{{$xp.End}}{{end}}</span>
+        </div>
+      </div>
+      <div class="xp-body">
+        <header class="xp-head">
+          <div>
+            <h3 class="xp-title">{{$xp.Title}}</h3>
+            <p class="xp-company">{{$xp.Company}} <span class="xp-loc">· {{$xp.Location}}</span></p>
+          </div>
+        </header>
+        {{$i18nBullets := index $.T.Experience.Bullets $i}}
+        {{if $i18nBullets}}
+        <ul class="xp-bullets">
+          {{range $i18nBullets}}<li>{{.}}</li>{{end}}
+        </ul>
+        {{else if $xp.Bullets}}
+        <ul class="xp-bullets">
+          {{range $xp.Bullets}}<li>{{.}}</li>{{end}}
+        </ul>
+        {{end}}
+      </div>
+    </article>
+    {{end}}
+  </div>
+</div>
+{{end}}

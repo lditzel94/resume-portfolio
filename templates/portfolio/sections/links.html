@@ -1,0 +1,62 @@
+{{define "section-links"}}
+<div class="section section-links">
+  <header class="section-head">
+    <p class="section-eyebrow">{{.T.Nav.Links}}</p>
+    <h2 class="section-title">{{.T.Links.Title}}</h2>
+  </header>
+
+  <div class="links-layout">
+
+    <div class="links-col">
+      <h3 class="col-title">{{.T.Links.ProjectsTitle}}</h3>
+      <div class="proj-grid">
+        {{range .Resume.Projects}}
+        <article class="proj-card">
+          <header class="proj-head">
+            <h4 class="proj-title">{{.Name}}</h4>
+            {{if .URL}}
+            <a href="https://{{.URL}}" target="_blank" rel="noopener" class="proj-link"
+               aria-label="{{$.T.Actions.ViewProject}}">
+              <svg class="icon"><use href="#i-arrow-up-right"/></svg>
+            </a>
+            {{end}}
+          </header>
+          <p class="proj-desc">{{.Description}}</p>
+          {{if .Tech}}
+          <div class="proj-tags">
+            {{range .Tech}}<span class="tech-tag">{{.}}</span>{{end}}
+          </div>
+          {{end}}
+        </article>
+        {{end}}
+      </div>
+    </div>
+
+    <aside class="links-col contact-col">
+      <div class="contact-card">
+        <h3 class="contact-title">{{.T.Links.ContactTitle}}</h3>
+        <p class="contact-body">{{.T.Links.ContactBody}}</p>
+        <div class="contact-actions">
+          <button type="button" class="btn btn-primary" data-open-contact>
+            <svg class="icon"><use href="#i-mail"/></svg>
+            <span>{{.T.Actions.SendEmail}}</span>
+          </button>
+          {{if .Resume.Meta.GitHub}}
+          <a href="https://{{.Resume.Meta.GitHub}}" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg class="icon"><use href="#i-github"/></svg>
+            <span>{{.T.Actions.ViewGithub}}</span>
+          </a>
+          {{end}}
+          {{if .Resume.Meta.LinkedIn}}
+          <a href="https://{{.Resume.Meta.LinkedIn}}" target="_blank" rel="noopener" class="btn btn-ghost">
+            <svg class="icon"><use href="#i-linkedin"/></svg>
+            <span>{{.T.Actions.ViewLinkedin}}</span>
+          </a>
+          {{end}}
+        </div>
+      </div>
+    </aside>
+
+  </div>
+</div>
+{{end}}

@@ -14,12 +14,15 @@ func main() {
 	root := filepath.Dir(file)
 
 	dataPath := filepath.Join(root, "data", "resume.yaml")
+	i18nDir := filepath.Join(root, "data", "i18n")
 	tmplDir := filepath.Join(root, "templates")
 	staticDir := filepath.Join(root, "static")
 
 	mux := http.NewServeMux()
 
-	mux.HandleFunc("/", handlers.ResumeHandler(dataPath, tmplDir))
+	mux.HandleFunc("/", handlers.PortfolioHandler(dataPath, i18nDir, tmplDir))
+	mux.HandleFunc("/section/", handlers.SectionHandler(dataPath, i18nDir, tmplDir))
+	mux.HandleFunc("/resume", handlers.ResumeHandler(dataPath, tmplDir))
 	mux.Handle("/static/", http.StripPrefix("/static/", http.FileServer(http.Dir(staticDir))))
 
 	log.Println("Listening on http://localhost:8080")

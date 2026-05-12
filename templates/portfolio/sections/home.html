@@ -1,0 +1,63 @@
+{{define "section-home"}}
+<div class="section section-home">
+  <div class="home-grid">
+
+    <div class="home-left">
+      <p class="home-role">{{.Resume.Meta.Title}}</p>
+      <h1 class="home-name">{{.Resume.Meta.Name}}</h1>
+      <p class="home-tagline">{{.T.Hero.Tagline}}</p>
+
+      <div class="contact-row">
+        <button type="button" class="contact-chip" data-open-contact>
+          <svg class="icon icon-amber"><use href="#i-mail"/></svg>
+          <span>{{.T.Actions.SendEmail}}</span>
+        </button>
+        {{if .Resume.Meta.LinkedIn}}
+        <a href="https://{{.Resume.Meta.LinkedIn}}" target="_blank" rel="noopener" class="contact-chip">
+          <svg class="icon icon-amber"><use href="#i-linkedin"/></svg>
+          <span>{{.LinkedInUser}}</span>
+        </a>
+        {{end}}
+        {{if .Resume.Meta.Phone}}
+        <span class="contact-chip">
+          <svg class="icon icon-amber"><use href="#i-phone"/></svg>
+          <span>{{.Resume.Meta.Phone}}</span>
+        </span>
+        {{end}}
+        <span class="contact-chip">
+          <svg class="icon icon-amber"><use href="#i-pin"/></svg>
+          <span>{{.Resume.Meta.Location}}</span>
+        </span>
+      </div>
+
+      <div class="home-ctas">
+        <button class="btn btn-primary"
+          onclick="document.querySelector('[data-section=&quot;links&quot;]').click()">
+          {{.T.Hero.CTAPrimary}}
+        </button>
+        <button class="btn btn-ghost"
+          onclick="document.querySelector('[data-section=&quot;experience&quot;]').click()">
+          {{.T.Hero.CTASecondary}}
+        </button>
+      </div>
+    </div>
+
+    <div class="home-right">
+      <div class="orb">
+        <div class="orb-glow"></div>
+        <div class="orb-ring"></div>
+        <div class="orb-core">
+          <img class="orb-photo" src="/static/img/profile.png" alt="{{.Resume.Meta.Name}}"
+               onerror="this.remove(); this.parentElement.insertAdjacentHTML('beforeend', '<span class=\'orb-monogram\'>{{.Initials}}</span>');" />
+        </div>
+        <div class="orb-orbit">
+          <span class="orb-dot orb-dot-1"></span>
+          <span class="orb-dot orb-dot-2"></span>
+          <span class="orb-dot orb-dot-3"></span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{{end}}

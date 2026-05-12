@@ -1,0 +1,22 @@
+{{define "section-summary"}}
+<div class="section section-summary">
+  <header class="section-head">
+    <p class="section-eyebrow">{{.T.Summary.Greeting}}</p>
+    <h2 class="section-title">{{.T.Summary.Title}}</h2>
+  </header>
+
+  <div class="summary-grid">
+    <div class="summary-text">
+      {{range .T.Summary.Paragraphs}}<p>{{.}}</p>{{end}}
+    </div>
+    <div class="summary-facts">
+      {{range .T.Summary.QuickFacts}}
+      <div class="fact-chip">
+        <span class="fact-emoji" aria-hidden="true">{{.Emoji}}</span>
+        <span>{{.Label}}</span>
+      </div>
+      {{end}}
+    </div>
+  </div>
+</div>
+{{end}}

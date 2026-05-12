@@ -1,0 +1,115 @@
+nav:
+  home: Home
+  summary: Summary
+  experience: Experience
+  skills: Skills
+  links: Links
+  lang_switch: "ES"
+  lang_switch_url: "/?lang=es"
+
+status:
+  open_to_work: "Open to work"
+
+actions:
+  download_cv: "Download"
+  send_email: "Send email"
+  view_github: "GitHub"
+  view_linkedin: "LinkedIn"
+  view_project: "View project"
+
+hero:
+  tagline: "I build cloud systems that scale and deliver real business impact."
+  cta_primary: "Let's talk"
+  cta_secondary: "See my work"
+
+summary:
+  title: "Summary"
+  greeting: "A bit about me"
+  paragraphs:
+    - >
+      I'm a software engineer based in Buenos Aires with 6+ years of experience
+      specialised in cloud-native backend systems and distributed architectures.
+      I care about clean design, resilient APIs, and solutions built to last —
+      with a strong focus on the full DevOps lifecycle from code to production.
+    - >
+      I've delivered financial platforms, core banking services, and customer-facing
+      applications for companies like Payway, BBVA, and Volkswagen. Whether it's
+      designing an event-driven pipeline from scratch or integrating complex third-party
+      systems, I bring full ownership and genuine curiosity to every challenge.
+  quick_facts:
+    - emoji: "🏙️"
+      label: "Buenos Aires, Argentina"
+    - emoji: "🧉"
+      label: "Mate over coffee"
+    - emoji: "☁️"
+      label: "Cloud & backend specialist"
+    - emoji: "🌐"
+      label: "Open to remote roles"
+    - emoji: "⚙️"
+      label: "DevOps mindset"
+    - emoji: "🤝"
+      label: "Strong team collaborator"
+
+experience:
+  title: "Experience"
+  present: "Present"
+  bullets:
+    - - >-
+        Designed and delivered a cloud-native 12-factor acquiring platform processing
+        financial transactions via Kotlin/Spring Boot microservices on AWS EKS.
+      - >-
+        Built a data ingestion pipeline using AWS Lambda (Python/Go) with S3 triggers
+        to process .gz files, validate domain models, and generate .csv output reports.
+      - >-
+        Drove event-driven architecture with Apache Kafka, increasing revenue and
+        eliminating manual data collection for the financial team.
+      - >-
+        Led architecture design sessions and collaborated with stakeholders on
+        backlog refinement, planning, and solution delivery.
+    - - >-
+        Developed core banking microservices for financial asset tracking and customer
+        data management using Java/Spring Boot on AWS.
+      - >-
+        Integrated Salesforce CRM via OAuth connector enabling seamless omnichannel
+        communication and back-office support across teams.
+      - >-
+        Created and maintained REST APIs ensuring backward compatibility while
+        introducing new integrations, applying DDD and TDD practices.
+    - - >-
+        Built a full-stack customer platform with Spring Boot + ReactJS enabling car
+        quotations, test drive requests, and lead management for sales teams.
+      - >-
+        Integrated Salesforce CData to synchronise customer and lead data across
+        platforms, increasing annual lead conversion rate.
+      - >-
+        Maintained Salesforce CRM configuration and integration, improving customer
+        experience and reducing post-sales issue volume.
+
+skills:
+  title: "Skills"
+  tech_title: "Tech I work with"
+  languages_title: "Languages"
+  education_title: "Education"
+  certs_title: "Certifications"
+
+links:
+  title: "Links"
+  projects_title: "Projects"
+  contact_title: "Let's build something together"
+  contact_body: >
+    Drop me a line — I reply fast. Always open to interesting projects and ambitious teams.
+
+footer:
+  built: "Built with Go + HTMX."
+
+contact_modal:
+  title: "Get in touch"
+  subtitle: "Send me a message — I'll get back to you fast."
+  name_label: "Your name"
+  name_placeholder: "Jane Doe"
+  subject_label: "Subject"
+  subject_placeholder: "What's this about?"
+  message_label: "Message"
+  message_placeholder: "Tell me a bit about your project..."
+  send: "Send"
+  cancel: "Cancel"

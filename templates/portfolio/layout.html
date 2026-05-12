@@ -1,0 +1,197 @@
+{{define "portfolio-layout"}}
+<!DOCTYPE html>
+<html lang="{{.Lang}}">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{.Resume.Meta.Name}} — {{.Resume.Meta.Title}}</title>
+  <meta name="description" content="{{.Resume.Meta.Title}} based in {{.Resume.Meta.Location}}" />
+  <link rel="stylesheet" href="/static/css/portfolio.css?v={{.BuildID}}" />
+  <script src="/static/js/htmx.min.js" defer></script>
+</head>
+<body>
+
+  <!-- SVG icon symbol library (referenced via <use>) -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
+      </symbol>
+      <symbol id="i-doc" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/>
+      </symbol>
+      <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+      </symbol>
+      <symbol id="i-zap" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
+      </symbol>
+      <symbol id="i-link" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"/><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"/>
+      </symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 5L2 7"/>
+      </symbol>
+      <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/>
+      </symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/>
+      </symbol>
+      <symbol id="i-linkedin" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M20.5 2h-17A1.5 1.5 0 002 3.5v17A1.5 1.5 0 003.5 22h17a1.5 1.5 0 001.5-1.5v-17A1.5 1.5 0 0020.5 2zM8 19H5v-9h3zM6.5 8.25A1.75 1.75 0 118.3 6.5 1.78 1.78 0 016.5 8.25zM19 19h-3v-4.74c0-1.42-.6-1.93-1.38-1.93A1.74 1.74 0 0013 14.19a.66.66 0 000 .14V19h-3v-9h2.9v1.3a3.11 3.11 0 012.7-1.4c1.55 0 3.36.86 3.36 3.66z"/>
+      </symbol>
+      <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor">
+        <path d="M12 .3a12 12 0 00-3.8 23.38c.6.12.83-.26.83-.57v-2c-3.34.72-4.04-1.6-4.04-1.6-.55-1.4-1.34-1.77-1.34-1.77-1.09-.74.08-.73.08-.73 1.2.09 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.5 1 .1-.78.42-1.31.76-1.61-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.13-.31-.54-1.53.11-3.18 0 0 1-.32 3.3 1.23A11.5 11.5 0 0112 5.8c1.02 0 2.05.14 3 .4 2.3-1.55 3.3-1.23 3.3-1.23.65 1.65.24 2.87.11 3.18.78.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.81 1.1.81 2.22v3.29c0 .31.22.69.83.57A12 12 0 0012 .3"/>
+      </symbol>
+      <symbol id="i-download" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+      </symbol>
+      <symbol id="i-arrow-up-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <line x1="7" y1="17" x2="17" y2="7"/><polyline points="7 7 17 7 17 17"/>
+      </symbol>
+    </defs>
+  </svg>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="status-badge">
+      <span class="status-dot"></span>
+      <span>{{.T.Status.OpenToWork}}</span>
+    </div>
+    <div class="topbar-actions">
+      <a href="{{.T.Nav.LangSwitchURL}}" class="lang-chip" aria-label="Switch language">
+        {{.T.Nav.LangSwitch}}
+      </a>
+      <a href="/resume" target="_blank" rel="noopener" class="cv-btn">
+        <svg class="icon"><use href="#i-download"/></svg>
+        <span>{{.T.Actions.DownloadCV}}</span>
+      </a>
+    </div>
+  </header>
+
+  <!-- STAGE -->
+  <main class="stage" id="stage">
+    {{if eq .Section "summary"}}{{template "section-summary" .}}
+    {{else if eq .Section "experience"}}{{template "section-experience" .}}
+    {{else if eq .Section "skills"}}{{template "section-skills" .}}
+    {{else if eq .Section "links"}}{{template "section-links" .}}
+    {{else}}{{template "section-home" .}}{{end}}
+  </main>
+
+  <!-- BOTTOM PILL NAV -->
+  <nav class="bottom-nav" aria-label="Sections">
+    <div class="nav-pill">
+      <button class="nav-item {{if eq .Section "home"}}active{{end}}" data-section="home"
+        hx-get="/section/home" hx-target="#stage" hx-swap="innerHTML transition:true">
+        <svg class="icon"><use href="#i-home"/></svg>
+        <span>{{.T.Nav.Home}}</span>
+      </button>
+      <button class="nav-item {{if eq .Section "summary"}}active{{end}}" data-section="summary"
+        hx-get="/section/summary" hx-target="#stage" hx-swap="innerHTML transition:true">
+        <svg class="icon"><use href="#i-doc"/></svg>
+        <span>{{.T.Nav.Summary}}</span>
+      </button>
+      <button class="nav-item {{if eq .Section "experience"}}active{{end}}" data-section="experience"
+        hx-get="/section/experience" hx-target="#stage" hx-swap="innerHTML transition:true">
+        <svg class="icon"><use href="#i-briefcase"/></svg>
+        <span>{{.T.Nav.Experience}}</span>
+      </button>
+      <button class="nav-item {{if eq .Section "skills"}}active{{end}}" data-section="skills"
+        hx-get="/section/skills" hx-target="#stage" hx-swap="innerHTML transition:true">
+        <svg class="icon"><use href="#i-zap"/></svg>
+        <span>{{.T.Nav.Skills}}</span>
+      </button>
+      <button class="nav-item {{if eq .Section "links"}}active{{end}}" data-section="links"
+        hx-get="/section/links" hx-target="#stage" hx-swap="innerHTML transition:true">
+        <svg class="icon"><use href="#i-link"/></svg>
+        <span>{{.T.Nav.Links}}</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- CONTACT MODAL -->
+  <div class="modal-overlay" id="contact-modal" hidden>
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="cm-title">
+      <button class="modal-close" aria-label="Close" data-close-modal>×</button>
+      <h2 id="cm-title" class="modal-title">{{.T.ContactModal.Title}}</h2>
+      <p class="modal-subtitle">{{.T.ContactModal.Subtitle}}</p>
+      <form id="contact-form" class="modal-form">
+        <label class="modal-field">
+          <span>{{.T.ContactModal.NameLabel}}</span>
+          <input type="text" name="name" required placeholder="{{.T.ContactModal.NamePlaceholder}}">
+        </label>
+        <label class="modal-field">
+          <span>{{.T.ContactModal.SubjectLabel}}</span>
+          <input type="text" name="subject" required placeholder="{{.T.ContactModal.SubjectPlaceholder}}">
+        </label>
+        <label class="modal-field">
+          <span>{{.T.ContactModal.MessageLabel}}</span>
+          <textarea name="message" required rows="5" placeholder="{{.T.ContactModal.MessagePlaceholder}}"></textarea>
+        </label>
+        <div class="modal-actions">
+          <button type="button" class="btn btn-ghost" data-close-modal>{{.T.ContactModal.Cancel}}</button>
+          <button type="submit" class="btn btn-primary">
+            <svg class="icon"><use href="#i-mail"/></svg>
+            <span>{{.T.ContactModal.Send}}</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script>
+    // Contact modal: open / close / mailto on submit
+    (function(){
+      const modal = document.getElementById('contact-modal');
+      const form = document.getElementById('contact-form');
+      const recipient = atob("{{.EmailB64}}"); // not in raw DOM
+      document.addEventListener('click', e => {
+        if (e.target.closest('[data-open-contact]')) {
+          e.preventDefault();
+          modal.hidden = false;
+        } else if (e.target === modal || e.target.closest('[data-close-modal]')) {
+          modal.hidden = true;
+        }
+      });
+      document.addEventListener('keydown', e => {
+        if (e.key === 'Escape' && !modal.hidden) modal.hidden = true;
+      });
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        const data = new FormData(form);
+        const body = `From: ${data.get('name')}\n\n${data.get('message')}`;
+        window.location.href = `mailto:${recipient}?subject=${encodeURIComponent(data.get('subject'))}&body=${encodeURIComponent(body)}`;
+        modal.hidden = true;
+        form.reset();
+      });
+    })();
+  </script>
+  <script>
+    // Active state + URL sync on nav clicks (fires before HTMX swap completes)
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+        btn.classList.add('active');
+        const section = btn.dataset.section;
+        const url = new URL(location.href);
+        if (section === 'home') url.searchParams.delete('section');
+        else url.searchParams.set('section', section);
+        history.replaceState(null, '', url.pathname + url.search);
+      });
+    });
+
+    // Lang switch: preserve current section across the reload
+    document.querySelectorAll('.lang-chip').forEach(chip => {
+      chip.addEventListener('click', e => {
+        e.preventDefault();
+        const active = document.querySelector('.nav-item.active')?.dataset.section || 'home';
+        const url = new URL(chip.getAttribute('href'), location.origin);
+        if (active !== 'home') url.searchParams.set('section', active);
+        location.href = url.pathname + url.search;
+      });
+    });
+  </script>
+</body>
+</html>
+{{end}}

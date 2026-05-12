@@ -1,0 +1,75 @@
+{{define "section-skills"}}
+<div class="section section-skills">
+  <header class="section-head">
+    <p class="section-eyebrow">{{.T.Nav.Skills}}</p>
+    <h2 class="section-title">{{.T.Skills.Title}}</h2>
+  </header>
+
+  <div class="skills-layout">
+
+    <div class="skills-col">
+      <h3 class="col-title">{{.T.Skills.TechTitle}}</h3>
+      <div class="tech-groups">
+        {{range .Resume.Skills}}
+        <div class="tech-group">
+          <p class="tech-group-label">{{.Category}}</p>
+          <div class="tech-tags">
+            {{range .Items}}<span class="tech-tag">{{.}}</span>{{end}}
+          </div>
+        </div>
+        {{end}}
+      </div>
+    </div>
+
+    <div class="skills-col">
+      {{if .Resume.Languages}}
+      <h3 class="col-title">{{.T.Skills.LanguagesTitle}}</h3>
+      <div class="lang-list">
+        {{range .Resume.Languages}}
+        <div class="lang-row">
+          <div class="lang-label">
+            <span>{{.Name}}</span>
+            <span class="lang-pct">{{.Level}}%</span>
+          </div>
+          <div class="lang-bar">
+            <span class="lang-fill" style="width: {{.Level}}%"></span>
+          </div>
+        </div>
+        {{end}}
+      </div>
+      {{end}}
+
+      {{if .Resume.Education}}
+      <h3 class="col-title col-title-mt">{{.T.Skills.EducationTitle}}</h3>
+      <ul class="edu-list">
+        {{range .Resume.Education}}
+        <li>
+          <span class="edu-dot"></span>
+          <div>
+            <p class="edu-line">{{.Degree}} in {{.Field}}</p>
+            <p class="edu-sub">{{.Institution}} · {{.Start}}–{{.End}}{{if .Honors}} · {{.Honors}}{{end}}</p>
+          </div>
+        </li>
+        {{end}}
+      </ul>
+      {{end}}
+
+      {{if .Resume.Certifications}}
+      <h3 class="col-title col-title-mt">{{.T.Skills.CertsTitle}}</h3>
+      <ul class="edu-list">
+        {{range .Resume.Certifications}}
+        <li>
+          <span class="edu-dot"></span>
+          <div>
+            <p class="edu-line">{{.Name}}</p>
+            <p class="edu-sub">{{.Issuer}}{{if .Date}} · {{.Date}}{{end}}</p>
+          </div>
+        </li>
+        {{end}}
+      </ul>
+      {{end}}
+    </div>
+
+  </div>
+</div>
+{{end}}

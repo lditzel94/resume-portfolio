@@ -1,0 +1,115 @@
+nav:
+  home: Inicio
+  summary: Resumen
+  experience: Experiencia
+  skills: Habilidades
+  links: Enlaces
+  lang_switch: "EN"
+  lang_switch_url: "/?lang=en"
+
+status:
+  open_to_work: "Abierto a propuestas"
+
+actions:
+  download_cv: "Descargar"
+  send_email: "Mandar email"
+  view_github: "GitHub"
+  view_linkedin: "LinkedIn"
+  view_project: "Ver proyecto"
+
+hero:
+  tagline: "Construyo sistemas cloud que escalan y generan impacto real en el negocio."
+  cta_primary: "Hablemos"
+  cta_secondary: "Ver mi trabajo"
+
+summary:
+  title: "Resumen"
+  greeting: "Un poco sobre mí"
+  paragraphs:
+    - >
+      Soy un desarrollador de software basado en Buenos Aires con más de 6 años de
+      experiencia especializado en sistemas backend cloud-native y arquitecturas
+      distribuidas. Me importan el diseño limpio, las APIs resilientes y las soluciones
+      construidas para durar, con foco en el ciclo DevOps completo.
+    - >
+      Entregué plataformas financieras, servicios de core banking y aplicaciones
+      orientadas al cliente para empresas como Payway, BBVA y Volkswagen. Ya sea
+      diseñando un pipeline event-driven desde cero o integrando sistemas complejos
+      de terceros, le pongo ownership total y curiosidad genuina a cada desafío.
+  quick_facts:
+    - emoji: "🏙️"
+      label: "Buenos Aires, Argentina"
+    - emoji: "🧉"
+      label: "Mate sobre café"
+    - emoji: "☁️"
+      label: "Cloud & backend specialist"
+    - emoji: "🌐"
+      label: "Abierto a trabajo remoto"
+    - emoji: "⚙️"
+      label: "Mentalidad DevOps"
+    - emoji: "🤝"
+      label: "Colaborador de equipo"
+
+experience:
+  title: "Experiencia"
+  present: "Hoy"
+  bullets:
+    - - >-
+        Diseñé y entregué una plataforma de adquirencia cloud-native 12-factor para
+        procesar transacciones financieras con microservicios Kotlin/Spring Boot en AWS EKS.
+      - >-
+        Construí un pipeline de ingesta de datos con AWS Lambda (Python/Go) disparado
+        desde S3 para procesar archivos .gz, validar modelos de dominio y generar reportes .csv.
+      - >-
+        Lideré la arquitectura event-driven con Apache Kafka, aumentando ingresos y
+        eliminando la operación manual del equipo financiero.
+      - >-
+        Conduje sesiones de diseño de soluciones y colaboré con stakeholders en
+        refinamiento, planificación y entrega.
+    - - >-
+        Desarrollé microservicios de core banking para seguimiento de activos financieros
+        y gestión de datos de clientes con Java/Spring Boot en AWS.
+      - >-
+        Integré Salesforce CRM mediante conector OAuth, habilitando comunicación omnicanal
+        y soporte de back-office entre equipos.
+      - >-
+        Creé y mantuve APIs REST garantizando compatibilidad hacia atrás al incorporar
+        nuevas integraciones, aplicando DDD y TDD.
+    - - >-
+        Desarrollé una plataforma full-stack con Spring Boot + ReactJS para cotizaciones
+        de autos, solicitudes de test drives y gestión de leads del equipo de ventas.
+      - >-
+        Integré Salesforce CData para sincronizar datos de clientes y leads entre plataformas,
+        aumentando la tasa anual de conversión de leads.
+      - >-
+        Mantuve la configuración e integración de Salesforce CRM, mejorando la experiencia
+        del cliente y reduciendo issues de posventa.
+
+skills:
+  title: "Habilidades"
+  tech_title: "Tecnologías con las que trabajo"
+  languages_title: "Idiomas"
+  education_title: "Educación"
+  certs_title: "Certificaciones"
+
+links:
+  title: "Enlaces"
+  projects_title: "Proyectos"
+  contact_title: "Construyamos algo juntos"
+  contact_body: >
+    Mandame un mensaje, respondo rápido. Siempre abierto a proyectos interesantes y equipos ambiciosos.
+
+footer:
+  built: "Hecho con Go + HTMX."
+
+contact_modal:
+  title: "Ponete en contacto"
+  subtitle: "Mandame un mensaje — te respondo rápido."
+  name_label: "Tu nombre"
+  name_placeholder: "Juana Pérez"
+  subject_label: "Asunto"
+  subject_placeholder: "¿De qué se trata?"
+  message_label: "Mensaje"
+  message_placeholder: "Contame un poco sobre tu proyecto..."
+  send: "Enviar"
+  cancel: "Cancelar"
