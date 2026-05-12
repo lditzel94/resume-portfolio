@@ -1,0 +1,15 @@
+[build]
+  cmd = "go build -o ./tmp/main.exe ."
+  bin = "./tmp/main.exe"
+  include_ext = ["go", "html", "css", "yaml"]
+  exclude_dir = ["tmp", "vendor", "data"]
+  delay = 500
+
+[log]
+  time = false
+
+[color]
+  main = "magenta"
+  watcher = "cyan"
+  build = "yellow"
+  runner = "green"
