@@ -1,0 +1,105 @@
+meta:
+  name: Luciano Ditzel
+  title: Senior Software Engineer
+  email: lucianoditzel94@gmail.com
+  phone: ""
+  location: Buenos Aires, Argentina
+  linkedin: www.linkedin.com/in/luciano-ditzel/
+  github: github.com/lditzel94
+  website: lditzel.dev
+
+experience:
+  - company: Redbee Studios
+    title: Software Engineer
+    location: Payway · Buenos Aires, Argentina
+    start: November 2022
+    end: May 2025
+    current: false
+    bullets:
+      - Designed and delivered a cloud-native 12-factor acquiring platform processing
+        financial transactions via Kotlin/Spring Boot microservices on AWS EKS.
+      - Built a data ingestion pipeline using AWS Lambda (Python/Go) with S3 triggers
+        to process .gz files, validate domain models, and generate .csv output reports.
+      - Drove event-driven architecture with Apache Kafka, increasing revenue and
+        eliminating manual data collection for the financial team.
+      - Led architecture design sessions and collaborated with stakeholders on
+        backlog refinement, planning, and solution delivery.
+
+  - company: Deloitte
+    title: Software Engineer
+    location: BBVA · Buenos Aires, Argentina
+    start: December 2020
+    end: November 2022
+    current: false
+    bullets:
+      - Developed core banking microservices for financial asset tracking and customer
+        data management using Java/Spring Boot on AWS.
+      - Integrated Salesforce CRM via OAuth connector enabling seamless omnichannel
+        communication and back-office support across teams.
+      - Created and maintained REST APIs ensuring backward compatibility while
+        introducing new integrations, applying DDD and TDD practices.
+
+  - company: Deloitte
+    title: Software Engineer
+    location: Volkswagen · Buenos Aires, Argentina
+    start: August 2018
+    end: December 2020
+    current: false
+    bullets:
+      - Built a full-stack customer platform with Spring Boot + ReactJS enabling car
+        quotations, test drive requests, and lead management for sales teams.
+      - Integrated Salesforce CData to synchronise customer and lead data across
+        platforms, increasing annual lead conversion rate.
+      - Maintained Salesforce CRM configuration and integration, improving customer
+        experience and reducing post-sales issue volume.
+
+education:
+  - institution: Digital House Bootcamp
+    degree: Certified Tech Developer
+    field: Professional Developer
+    start: 2022
+    end: 2023
+    honors: ""
+
+languages:
+  - name: Spanish
+    level: 100
+  - name: English
+    level: 88
+
+skills:
+  - category: Languages
+    items: [Java, Kotlin, Python, Go, SQL]
+  - category: Frameworks
+    items: [Spring Boot, Spring Webflux, Spring Data, Spring MVC]
+  - category: Testing
+    items: [JUnit, Kotest, Testcontainers, Mockito, Mockk]
+  - category: Cloud & Infra
+    items: [AWS, Docker, Kubernetes, Terraform, Terragrunt, Helm, ArgoCD]
+  - category: Data & Messaging
+    items: [PostgreSQL, MongoDB, Redis, Apache Kafka]
+  - category: CI/CD & Tools
+    items: [GitLab CI, Git, Linux, Jira, AWS CloudWatch]
+
+projects:
+  - name: resume-portfolio
+    url: github.com/lditzel94/resume-portfolio
+    description: Self-hosted Go + HTMX portfolio and resume manager with ATS-optimized PDF export.
+    tech: [Go, HTMX, YAML]
+
+certifications:
+  - name: AWS Certified Cloud Practitioner
+    issuer: Amazon Web Services
+    date: "2025"
+  - name: Vertex AI Search for Retail
+    issuer: Google Cloud
+    date: "2025"
+  - name: DevOps Tools and AWS for Java Microservice Developers
+    issuer: Udemy
+    date: "2023"
+  - name: Master Spring Framework, Spring Boot, REST, JPA, Hibernate
+    issuer: Udemy
+    date: "2022"
+  - name: Skill Up Java
+    issuer: Alkemy Bootcamp
+    date: "2022"

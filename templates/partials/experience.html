@@ -1,0 +1,24 @@
+{{define "experience"}}
+{{if .}}
+<section class="resume-section" aria-labelledby="experience-heading">
+  <h2 id="experience-heading">Experience</h2>
+  {{range .}}
+  <article class="experience-entry">
+    <header class="entry-header">
+      <h3>{{.Title}}</h3>
+      <span class="company">{{.Company}}</span>
+      <span class="entry-meta">
+        <span class="location">{{.Location}}</span>
+        <span class="dates">{{.Start}} — {{if .Current}}Present{{else}}{{.End}}{{end}}</span>
+      </span>
+    </header>
+    {{if .Bullets}}
+    <ul class="bullets">
+      {{range .Bullets}}<li>{{.}}</li>{{end}}
+    </ul>
+    {{end}}
+  </article>
+  {{end}}
+</section>
+{{end}}
+{{end}}

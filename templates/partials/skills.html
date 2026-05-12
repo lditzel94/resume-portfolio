@@ -1,0 +1,15 @@
+{{define "skills"}}
+{{if .}}
+<section class="resume-section" aria-labelledby="skills-heading">
+  <h2 id="skills-heading">Skills</h2>
+  <dl class="skills-list">
+    {{range .}}
+    <div class="skill-group">
+      <dt>{{.Category}}</dt>
+      <dd>{{range $i, $item := .Items}}{{if $i}}, {{end}}{{$item}}{{end}}</dd>
+    </div>
+    {{end}}
+  </dl>
+</section>
+{{end}}
+{{end}}

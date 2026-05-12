@@ -1,0 +1,20 @@
+{{define "education"}}
+{{if .}}
+<section class="resume-section" aria-labelledby="education-heading">
+  <h2 id="education-heading">Education</h2>
+  {{range .}}
+  <article class="education-entry">
+    <header class="entry-header">
+      <h3>{{.Degree}} in {{.Field}}</h3>
+      <span class="company">{{.Institution}}</span>
+      <span class="entry-meta">
+        <span class="dates">{{.Start}} — {{.End}}</span>
+        {{if .GPA}}<span class="gpa">GPA: {{.GPA}}</span>{{end}}
+        {{if .Honors}}<span class="honors">{{.Honors}}</span>{{end}}
+      </span>
+    </header>
+  </article>
+  {{end}}
+</section>
+{{end}}
+{{end}}

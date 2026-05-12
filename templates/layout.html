@@ -1,0 +1,15 @@
+{{define "layout"}}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{.Meta.Name}} — Resume</title>
+  <link rel="stylesheet" href="/static/css/resume.css" />
+  <script src="/static/js/htmx.min.js" defer></script>
+</head>
+<body>
+  {{template "content" .}}
+</body>
+</html>
+{{end}}

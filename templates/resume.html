@@ -1,0 +1,54 @@
+{{define "content"}}
+<main class="resume">
+
+  <header class="resume-header">
+    <h1>{{.Meta.Name}}</h1>
+    <p class="resume-title">{{.Meta.Title}}</p>
+    <address class="resume-contact">
+      <span>{{.Meta.Email}}</span>
+      <span>{{.Meta.Phone}}</span>
+      <span>{{.Meta.Location}}</span>
+      {{if .Meta.LinkedIn}}<span><a href="https://{{.Meta.LinkedIn}}">{{.Meta.LinkedIn}}</a></span>{{end}}
+      {{if .Meta.GitHub}}<span><a href="https://{{.Meta.GitHub}}">{{.Meta.GitHub}}</a></span>{{end}}
+    </address>
+    {{if .Meta.Summary}}
+    <section class="resume-summary" aria-label="Professional Summary">
+      <p>{{.Meta.Summary}}</p>
+    </section>
+    {{end}}
+  </header>
+
+  {{template "experience" .Experience}}
+  {{template "education" .Education}}
+  {{template "skills" .Skills}}
+
+  {{if .Projects}}
+  <section class="resume-section" aria-labelledby="projects-heading">
+    <h2 id="projects-heading">Projects</h2>
+    {{range .Projects}}
+    <article class="project-entry">
+      <h3>
+        {{if .URL}}<a href="https://{{.URL}}">{{.Name}}</a>{{else}}{{.Name}}{{end}}
+      </h3>
+      <p>{{.Description}}</p>
+      {{if .Tech}}<p class="tech-list"><strong>Tech:</strong> {{range $i, $t := .Tech}}{{if $i}}, {{end}}{{$t}}{{end}}</p>{{end}}
+    </article>
+    {{end}}
+  </section>
+  {{end}}
+
+  {{if .Certifications}}
+  <section class="resume-section" aria-labelledby="certs-heading">
+    <h2 id="certs-heading">Certifications</h2>
+    <ul class="cert-list">
+      {{range .Certifications}}
+      <li>
+        <strong>{{.Name}}</strong> — {{.Issuer}}{{if .Date}}, {{.Date}}{{end}}
+      </li>
+      {{end}}
+    </ul>
+  </section>
+  {{end}}
+
+</main>
+{{end}}
