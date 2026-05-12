@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- Amber orb gradient with a soft highlight in the top-left -->
+  <defs>
+    <radialGradient id="orb" cx="35%" cy="28%" r="75%">
+      <stop offset="0%" stop-color="#fde68a"/>
+      <stop offset="55%" stop-color="#f4b740"/>
+      <stop offset="100%" stop-color="#ea580c"/>
+    </radialGradient>
+    <linearGradient id="shine" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fff" stop-opacity="0.35"/>
+      <stop offset="60%" stop-color="#fff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Orb body + glossy highlight -->
+  <circle cx="32" cy="32" r="30" fill="url(#orb)"/>
+  <ellipse cx="32" cy="22" rx="22" ry="12" fill="url(#shine)"/>
+
+  <!-- Monogram: bold, condensed, sits low to feel grounded -->
+  <text x="32" y="46"
+        text-anchor="middle"
+        font-family="system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif"
+        font-weight="900"
+        font-size="30"
+        letter-spacing="-1.5"
+        fill="#1a0a04">LD</text>
+
+  <!-- Tiny orbit dot — callback to the home page orb -->
+  <circle cx="52" cy="13" r="3" fill="#fff" opacity="0.95"/>
+</svg>
