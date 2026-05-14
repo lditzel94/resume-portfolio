@@ -812,8 +812,18 @@ a.contact-chip:hover {
   .home-name { font-size: clamp(2.5rem, 14vw, 4rem); }
 
   .nav-item span { display: none; }
-  .nav-item { padding: 0.55rem 0.7rem; }
-  .nav-pill { gap: 0.1rem; }
+  .nav-item {
+    width: 52px;
+    height: 52px;
+    padding: 0;
+    justify-content: center;
+  }
+  .nav-item .icon { width: 24px; height: 24px; }
+  .nav-pill {
+    gap: 0.6rem;
+    padding: 0.55rem 0.75rem;
+  }
+  .bottom-nav { bottom: 1.25rem; }
 
   .summary-facts { grid-template-columns: 1fr; }
 

@@ -194,43 +194,6 @@
       });
     });
 
-    // Horizontal swipe navigation (mobile / tablet / touchscreens)
-    // Delegates to nav buttons so URL sync, active state, HTMX swap stay
-    // consistent. Listeners always attached but fire only on touch + below
-    // tablet breakpoint to avoid hijacking trackpad gestures on desktop.
-    (function(){
-      const sections = ['home', 'summary', 'experience', 'skills', 'links'];
-      const stage = document.getElementById('stage');
-      if (!stage) return;
-
-      let startX = 0, startY = 0, startT = 0;
-
-      stage.addEventListener('touchstart', e => {
-        if (e.touches.length !== 1) return;
-        startX = e.touches[0].clientX;
-        startY = e.touches[0].clientY;
-        startT = Date.now();
-      }, { passive: true });
-
-      stage.addEventListener('touchend', e => {
-        // Only act on narrow viewports (mobile/tablet)
-        if (!matchMedia('(max-width: 900px)').matches) return;
-        // Don't hijack swipes that started on an interactive control
-        if (e.target.closest('button, a, input, textarea, .modal-overlay')) return;
-        const t = e.changedTouches[0];
-        const dx = t.clientX - startX;
-        const dy = t.clientY - startY;
-        const dt = Date.now() - startT;
-        // Must be primarily horizontal, beyond threshold, and quick
-        if (dt > 600 || Math.abs(dx) < 60 || Math.abs(dy) > 50) return;
-        const current = document.querySelector('.nav-item.active')?.dataset.section || 'home';
-        const idx = sections.indexOf(current);
-        if (idx < 0) return;
-        const nextIdx = dx < 0 ? idx + 1 : idx - 1; // swipe-left = next
-        if (nextIdx < 0 || nextIdx >= sections.length) return;
-        document.querySelector(`[data-section="${sections[nextIdx]}"]`)?.click();
-      }, { passive: true });
-    })();
   </script>
 </body>
 </html>
